@@ -24,7 +24,7 @@ steps:
     # Available inside the docker container
     #- echo DOCKER_COMPOSE_VAR_ENV=$DRONE_REPO_SECRET >> .env
 
-    - echo DOCKER_COMPOSE_VAR_ENV=$DRONE_REPO_SECRET >> .env.prod
+    - echo VARIABLE="Override_var" >> .env.prod
 
     # NOT AVAILABLE inside the docker container
     - export EXPORTED_VAR=$DRONE_REPO_SECRET

@@ -15,7 +15,7 @@ I made this app to debug environment variables passed by DroneCI and Docker cont
 - Clone this repo
 - Run the following command depending on your goal:
   - Locally : `docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d --build --force-recreate`
-  - Using [caddy-docker-proxy](https://github.com/lucaslorentz/caddy-docker-proxy) : `docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build --force-recreate`
+  - On a remote server running [caddy-docker-proxy](https://github.com/lucaslorentz/caddy-docker-proxy) and Drone CI : `docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build --force-recreate`
 - Go to `http://localhost:8080`
 - Admire your environment variables
 
