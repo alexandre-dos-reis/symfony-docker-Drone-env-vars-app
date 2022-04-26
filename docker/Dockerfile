@@ -1,7 +1,8 @@
 FROM php:7.4-apache
 
 RUN apt-get update && apt-get install -y \
-    git
+    git \
+    unzip
 
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
