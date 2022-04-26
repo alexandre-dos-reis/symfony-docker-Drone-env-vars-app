@@ -1,0 +1,22 @@
+---
+kind: pipeline
+type: ssh
+name: Deploy
+
+server:
+  host:
+    from_secret: HOST_ADDR
+  user:
+    from_secret: USER
+  password:
+    from_secret: PASSWORD
+
+steps:
+- name: Deploy via docker
+  environment:
+    DRONE_REPO_SECRET:
+      from_secret: DRONE_REPO_SECRET
+    DRONE_FILE_VAR: "This is my drone file env var."
+  commands:
+    - echo "Drone env vars loaded !"
+    - sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build --force-recreate
