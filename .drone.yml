@@ -23,9 +23,8 @@ steps:
 
     # Available inside the docker container
     #- echo DOCKER_COMPOSE_VAR_ENV=$DRONE_REPO_SECRET >> .env
-    - export DOCKER_COMPOSE_VAR_ENV=$DRONE_REPO_SECRET
 
     # NOT AVAILABLE inside the docker container
     - export EXPORTED_VAR=$DRONE_REPO_SECRET
 
-    - sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build --force-recreate
+    - export DOCKER_COMPOSE_VAR_ENV=$DRONE_REPO_SECRET; sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build --force-recreate
