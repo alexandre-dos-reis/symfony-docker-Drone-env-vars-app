@@ -24,7 +24,7 @@ steps:
     # Available inside the docker container
     #- echo DOCKER_COMPOSE_VAR_ENV=$DRONE_REPO_SECRET >> .env
 
-    - echo VARIABLE="Override_var" >> .env.prod
+    - echo DATABASE_URL="mysql://${DRONE_REPO_SECRET}:${DRONE_REPO_SECRET}@atelier-amelie-db:3306/${DRONE_REPO_SECRET}?serverVersion=mariadb-10.6.3" >> .env
 
     # NOT AVAILABLE inside the docker container
     - export EXPORTED_VAR=$DRONE_REPO_SECRET
