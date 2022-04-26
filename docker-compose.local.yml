@@ -1,0 +1,5 @@
+version: '3.7'
+services:
+    symfony-drone-env-vars-app:
+        ports:
+          - 8080:80

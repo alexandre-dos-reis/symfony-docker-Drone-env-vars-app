@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+    symfony-drone-env-vars-app:
+        networks:
+            - caddy
+        labels:
+            caddy: test.reges.fr
+            caddy.reverse_proxy: "{{upstreams 80}}"
+networks:
+    caddy:
+        external: true

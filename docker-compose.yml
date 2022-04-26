@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+    symfony-drone-env-vars-app:
+        container_name: symfony-drone-env-vars-app
+        build: 
+            context: .
+            dockerfile: docker/Dockerfile
+        environment:
+            DOCKER_COMPOSE_ENV: myDockerComposeEnv
+            DOCKER_COMPOSE_VAR_ENV: ${DOCKER_COMPOSE_VAR_ENV}
