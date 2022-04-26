@@ -29,8 +29,4 @@ steps:
     # NOT AVAILABLE inside the docker container
     - export EXPORTED_VAR=$DRONE_REPO_SECRET
 
-    - sudo docker-compose \
-      -f docker-compose.yml \
-      -f docker-compose.prod.yml \
-      --env-file .env.prod \
-      up -d --build --force-recreate
+    - sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml --env-file .env.prod up -d --build --force-recreate
