@@ -18,5 +18,5 @@ steps:
       from_secret: DRONE_REPO_SECRET
     DRONE_FILE_VAR: "This is my drone file env var."
   commands:
-    - echo "Drone env vars loaded !"
+    - echo $DRONE_REPO_SECRET >> .env
     - sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build --force-recreate
