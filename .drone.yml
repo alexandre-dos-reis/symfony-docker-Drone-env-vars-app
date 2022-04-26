@@ -16,11 +16,16 @@ steps:
   environment:
     DRONE_REPO_SECRET:
       from_secret: DRONE_REPO_SECRET
-    ALEXANDRE:
-      from_secret: ALEXANDRE
     DRONE_FILE_VAR: "This is my drone file env var."
   commands:
+    # Available inside the docker container
     - echo DOT_ENV_DRONE_VAR=$DRONE_REPO_SECRET >> .env
-    - echo DOCKER_COMPOSE_VAR_ENV=$DRONE_REPO_SECRET >> .env
+
+    # Available inside the docker container
+    #- echo DOCKER_COMPOSE_VAR_ENV=$DRONE_REPO_SECRET >> .env
+    - export DOCKER_COMPOSE_VAR_ENV=$DRONE_REPO_SECRET
+
+    # NOT AVAILABLE inside the docker container
     - export EXPORTED_VAR=$DRONE_REPO_SECRET
+
     - sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build --force-recreate
